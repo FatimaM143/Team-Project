@@ -183,3 +183,71 @@ padding-left: 20px;*/
 width: 500px;
 height: auto;
 }
+
+.login-bg-image{
+  min-height: 100vh;
+  width: 100%;
+  background-image:url(leeds-corn-exchange-transparent.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+input{
+width: 90%;
+padding: 12px 20px;
+margin: 8px 0px;
+margin-left :auto;
+margin-right :auto;
+display: block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+}
+
+.loginbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left :auto;
+  margin-right :auto;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 90%;
+  font-size: 20px;
+}
+
+.signup-form {
+
+  display: block;
+  position: relative;
+  margin-left :auto;
+  margin-right :auto;
+  border: 3px solid grey;
+  transform: translate(20px,150px);
+  background-color: white;
+  width: 35%;
+  min-height: 60vh;
+}
+
+.signup-form-form {
+padding: 10px;
+}
+
+.signup-form h2 {
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+}
+
+label{
+  text-align: right;
+  padding: 27px;
+}
+
+.textbox{
+padding: 13px 0;
+
+}
+
