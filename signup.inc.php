@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submit"])){
+if(isset($_POST["submit"])){                      //Check if the user used submit button to get to this page
   $name = $_POST["name"];
   $email = $_POST["email"];
   $username = $_POST["uid"];
@@ -26,7 +26,7 @@ if(isset($_POST["submit"])){
     header("location: ../signup.php?error=passwordsdiffer");
     exit();
   }
-  if(uidExists($username, $conn) !== false){                                                      //Check if unique username
+  if(uidExists($conn, $username, $email) !== false){                                                      //Check if unique username
     header("location: ../signup.php?error=usernametaken");
     exit();
   }
@@ -34,17 +34,9 @@ if(isset($_POST["submit"])){
     header("location: ../signup.php?error=weakpassword");
     exit();
   }
+  createUser($conn, $name, $email, $username, $pwd);
 
-  createUser($conn, $name, $email, $username, $pwd)
-}else {
+}else{
   header("location: ../signup.php");
 }
-
-
-
-
-
-
-
-
  ?>
