@@ -149,7 +149,40 @@ function loginUser($conn, $email, $pwd) {
   }
     exit();
   }
+}}
+/*Add product
+*/
+function addProduct($ProductName, $productPrice, $productDesc, $productImg){
+  $element = '
+  <div class="col-md-3 col-sm-6 my-3 my-md-0">
+    <form action="index.php" method="post">
+      <div class="card shadow">
+        <img src='.$productImg.' alt="image1" class ="img-fluid card-img-top">
+      </div>
+      <div class="card-body">
+        <h5 class = "card-title">'.$ProductName.'</h5>
+        <p class = "card text">'.$productDesc.'</p>
+        <h5><span class="price">£'.$productPrice.'</span></h5>
+        <button type="submit" class = "btn btn-warning my-3" name="add">Add to Basket<i class ="fas fa-shopping-cart"></i></button>
+      </div>
+    </form>
+  </div>
+  ';
+  echo $element;
 }
+/*add shop
+*/
+function addShop($shopName, $shopImg, $pagePath) {
+ $element = '
+  <div class="col-md-3 col-sm-6 my-3 my-md-0">
+      <form action="index.php" method="post">
+        <div class="card shadow">
+          <a href='.$pagePath.'><img src="img/logo.png" alt="image1" class ="img-fluid card-img-top"></a>
+           <div class ="centered">'.$shopName.'</div>
+        </div>
+      </form>
+    </div>
+  ';
+ echo $element;
 }
-
 ?>
