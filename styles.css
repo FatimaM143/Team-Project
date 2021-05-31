@@ -1,16 +1,22 @@
-body{
-  margin: 0;
-  background: white;
-  /*font-family: 'Ubuntu', sans-serif;*/
+html body{
+
   font-family: 'Montserrat', sans-serif;
-
   font-weight: 300;
-}
 
+}
 .container {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
+
+
+
+/*
+.bg-image{
+  width: 100%;
+  position: relative;
+}*/
+
 
 header {
   background: #f2f3f2;
@@ -24,14 +30,25 @@ header::after {
 
 .logo {
   float: left;
+  width: 100%;
+  height: auto;
   padding: 10px 0;
   padding-top: 10px;
-  width: 120px;
-  height: auto;
+  max-width: 120px;
+
 }
+
+/*.logo {
+  float: left;
+  padding: 10px 0;
+  padding-top: 10px;
+  max-width: 120px;
+  height: auto;
+}*/
 
 nav {
   float: right;
+  padding: 15px;
 }
 
 nav ul {
@@ -42,9 +59,8 @@ nav ul {
 
 nav li {
   display: inline-block;
-  margin-left:  70px;
+  margin-left: 70px;
   padding-top: 50px;
-
   position: relative;
 }
 
@@ -75,31 +91,33 @@ nav a:hover::before {
   width: 100%;
 }
 
-*{
-margin: 0;
-padding: 0;
-}
-
-.bg-image {
-  min-height: 100vh;
+.responsive {
   width: 100%;
-  background-image:url(Leeds-Corn-Exchange.png);
-  background-position: center;
-  background-size: cover;
-  position: relative;
+  height: auto;
 }
 
-/*Shop 1*/
+.button1 {
+  position: absolute;
+  top:70.5%;
+  left:34%;
+  color: white;
+  margin: 0;
+  font-size: 1.4vw;
+}
+/*shop1*/
 .button1{
-background-color: yellow;
-border: none;
-display: inline-block;
-margin: 260px 20px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 30px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:1%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
+  border-radius: 40%;
 }
 .popup1 {display: none;}
 .button1:hover + .popup1 {
@@ -110,19 +128,22 @@ border-radius: 40%;
   right: 50px;
 }
 .button1:hover{opacity: 0.4;}
-.Proms_and_Pearls{max-width: 80%; opacity: 0.8;}
+.Shop1{opacity: 0.8; width: 80%; height: auto;}
 
-/*Shop 2*/
+/*shop2*/
 .button2{
-background-color: green;
-border: none;
-display: inline-block;
-margin: 263px 10px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 28px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:8%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: yellow;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
+  border-radius: 40%;
 }
 
 .popup2 {display: none;}
@@ -134,19 +155,22 @@ border-radius: 40%;
   right: 50px;
 }
 .button2:hover{opacity: 0.4;}
-.Dion_Smith_Jewellery{max-width: 80%; opacity: 0.8;}
+.Shop2{opacity: 0.8; width: 80%; height: auto;}
 
 /*Shop 3*/
 .button3{
-background-color: green;
-border: none;
-display: inline-block;
-margin: 263px 15px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 28px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:15%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: blue;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
+  border-radius: 40%;
 }
 
 .popup3 {display: none;}
@@ -158,96 +182,257 @@ border-radius: 40%;
   right: 50px;
 }
 .button3:hover{opacity: 0.4;}
-.NorthernAcousticsLogo{max-width: 80%; opacity: 0.8;}
+.Shop3{opacity: 0.8; width: 80%; height: auto;}
 
-.about-text{
-  float: right;
-  width: 700px;
-  padding: 15px;
-  border: 3px solid white;
-  margin-top: 80px;
-  margin-left: 0px;
-  margin-right: 130px;
-  text-align: center;
-  font-size: 17px;
-  font-family: 'Montserrat', sans-serif;
 
-}
-.building{
-float: left;
-margin: 0;
-padding: 60px;
-padding-left: 90px;
-/*padding-top: 10px;
-padding-left: 20px;*/
-width: 500px;
-height: auto;
-}
-
-.login-bg-image{
-  min-height: 100vh;
-  width: 100%;
-  background-image:url(leeds-corn-exchange-transparent.png);
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
-input{
-width: 90%;
-padding: 12px 20px;
-margin: 8px 0px;
-margin-left :auto;
-margin-right :auto;
-display: block;
-border: 1px solid #ccc;
-box-sizing: border-box;
-}
-
-.loginbtn {
-  background-color: #04AA6D;
+@media only screen and (max-width: 323px){
+.button1{
+  background-color: red;
+  top:80%;
+  left:1%;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  margin-left :auto;
-  margin-right :auto;
-  border: none;
-  cursor: pointer;
-  display: block;
-  width: 90%;
-  font-size: 20px;
+  padding: 3px 0.8px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  background-color: red;
+  top:80%;
+  left:8%;
+  color: white;
+  padding: 3px 0.8px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top:80%;
+    left:15%;
+    color: white;
+    padding: 3px 0.8px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
 
-.signup-form {
+@media only screen and (min-width:500px){
+.button1{
+  background-color: pink;
+  top:55%;
+  left:1%;
+  color: white;
+  padding: 6px 1.6px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
 
-  display: block;
-  position: relative;
-  margin-left :auto;
-  margin-right :auto;
-  border: 3px solid grey;
-  transform: translate(20px,150px);
-  background-color: white;
-  width: 35%;
-  min-height: 60vh;
+.button2{
+  background-color: red;
+  top:55%;
+  left:8%;
+  color: white;
+  padding: 6px 1.6px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top:55%;
+    left:15%;
+    color: white;
+    padding: 6px 1.6px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
 
-.signup-form-form {
-padding: 10px;
+@media only screen and (min-width:600px){
+.button1{
+  background-color: blue;
+  top:58.5%;
+  left:1%;
+  color: white;
+  padding: 10px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  background-color: red;
+  top:58.5%;
+  left:8%;
+  color: white;
+  padding: 10px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top:58.5%;
+    left:15%;
+    color: white;
+    padding: 10px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
 
-.signup-form h2 {
-  text-align: center;
-  font-size: 30px;
-  padding: 20px;
+@media only screen and (min-width:790px){
+.button1{
+  background-color: blue;
+  top:65%;
+  left:1%;
+  color: white;
+  padding: 10px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  background-color: red;
+  top:65%;
+  left:8%;
+  color: white;
+  padding: 10px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top:65%;
+    left:15%;
+    color: white;
+    padding: 10px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
+@media only screen and (min-width:970px){
+.button1{
+  background-color: black;
+  top: 68%;
+  left:1.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
 
-label{
-  text-align: right;
-  padding: 27px;
+.button2{
+  background-color: red;
+  top: 68%;
+  left:8.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top: 68%;
+    left:15.5%;
+    color: white;
+    padding: 15px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
+@media only screen and (min-width:975px){
+.button1{
+  background-color: blue;
+  top: 60%;
+  left:1.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
 
-.textbox{
-padding: 13px 0;
+.button2{
+  background-color: red;
+  top: 60%;
+  left:8.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
 
+.button3{
+    background-color: red;
+    top: 60%;
+    left:15.5%;
+    color: white;
+    padding: 15px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
 }
+@media only screen and (min-width:976px){
+.button1{
+  background-color: blue;
+  top: 58%;
+  left:1.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
 
+.button2{
+  background-color: red;
+  top: 58%;
+  left:8.5%;
+  color: white;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top: 58%;
+    left:15.5%;
+    color: white;
+    padding: 15px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+}
+@media only screen and (min-width:1000px){
+.button1{
+  background-color: blue;
+  top: 60%;
+  left:1.5%;
+  color: white;
+  padding: 30px 3px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  background-color: red;
+  top: 60%;
+  left:8.5%;
+  color: white;
+  padding: 30px 3px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    background-color: red;
+    top: 60%;
+    left:15.5%;
+    color: white;
+    padding: 30px 3px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+}
