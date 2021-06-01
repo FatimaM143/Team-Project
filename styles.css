@@ -9,15 +9,6 @@ html body{
   margin: 0 auto;
 }
 
-
-
-/*
-.bg-image{
-  width: 100%;
-  position: relative;
-}*/
-
-
 header {
   background: #f2f3f2;
 }
@@ -37,14 +28,6 @@ header::after {
   max-width: 120px;
 
 }
-
-/*.logo {
-  float: left;
-  padding: 10px 0;
-  padding-top: 10px;
-  max-width: 120px;
-  height: auto;
-}*/
 
 nav {
   float: right;
@@ -124,7 +107,7 @@ nav a:hover::before {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button1:hover{opacity: 0.4;}
@@ -151,7 +134,7 @@ nav a:hover::before {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button2:hover{opacity: 0.4;}
@@ -178,7 +161,7 @@ nav a:hover::before {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button3:hover{opacity: 0.4;}
@@ -205,7 +188,7 @@ nav a:hover::before {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button4:hover{opacity: 0.4;}
@@ -232,7 +215,7 @@ nav a:hover::before {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 
@@ -584,4 +567,29 @@ nav a:hover::before {
         }
         .button5:hover + .popup5 {float: right; left: 60%;}
         .Shop5{opacity: 0.8; width: 100%; height: auto;}
+}
+
+
+.footer-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  box-sizing: border-box;
+  background:#f2f3f2;
+  height: 0px;
+}
+
+.footer {
+  width: 100%;
+  background-color:#f2f3f2;
+  display: inline-block;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.footer-heading footer-1 {
+    display: flex;
+    display: inline-block;
+    flex-direction: column;
 }
