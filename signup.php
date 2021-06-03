@@ -2,7 +2,6 @@
 include_once 'header.php';
 ?>
   </header>
-
   <section class ="form">
     <h2>Sign up</h2>
     <div class="signup-form-form">
