@@ -5,10 +5,9 @@ session_start();
 <html lang="en">
 <head>
   <!-- Font awesome!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <!-- bootstrap!-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +15,31 @@ session_start();
 </head>
 
 <body>
+  <style>
+  .fa {
+    padding: 6px;
+    font-size: 16px;
+    width: 50px;
+    text-align: left;
+    text-decoration: none;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  </style>
 
 <header>
-  <div class="container">
-
     <img src="img/logo.png" alt="logo" class="logo">
-    <a href="https://www.facebook.com/LeedsCornExchange/" class="fa fa-facebook"></a>
-    <a href="https://twitter.com/leedscornex" class="fa fa-twitter"></a>
+    <a href="https://www.facebook.com/LeedsCornExchange/"><i class ="fa fa-facebook">F</i></a>
+    <a href="https://twitter.com/leedscornex"><i class ="fa fa-twitter">T</i></a>
     <nav>
       <ul>
         <li><a href="index.php">Home</a></li>
@@ -44,4 +61,5 @@ session_start();
       </ul>
     </nav>
 
-  </div>
+
+  </header>

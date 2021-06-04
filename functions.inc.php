@@ -146,19 +146,23 @@ function loginUser($conn, $email, $pwd) {
   }
 }}
 /*Add product*/
-function addProduct($ProductName, $productPrice, $productDesc, $productImg, $productId){
+function addProduct($productName, $productPrice, $productDesc, $productImg, $productId, $shopName){
   $element = '
   <div class="col-md-3 col-sm-6 my-3 my-md-0">
-    <form action="plantpoint.php" method="post">
+    <form action="'.$shopName.'.php" method="post">
       <div class="card shadow">
         <img src='.$productImg.' alt="image1" class ="img-fluid card-img-top">
       </div>
       <div class="card-body">
-        <h5 class = "card-title">'.$ProductName.'</h5>
+        <h5 class = "card-title">'.$productName.'</h5>
         <p class = "card text">'.$productDesc.'</p>
         <h5><span class="price">£'.$productPrice.'</span></h5>
         <button type="submit" class = "btn btn-warning my-3" name="add">Add to Basket<i class ="fas fa-shopping-cart"></i></button>
          <input type="hidden" name="productId" value='.$productId.'>
+         <input type="hidden" name="productName" value='.$productName.'>
+         <input type="hidden" name="productImg" value='.$productImg.'>
+         <input type="hidden" name="productPrice" value='.$productPrice.'>
+         <input type="hidden" name="shopName" value='.$shopName.'>
       </div>
     </form>
   </div>
@@ -171,8 +175,8 @@ function addShop($shopName, $shopImg, $pagePath) {
   <div class="col-md-3 col-sm-6 my-3 my-md-0">
       <form action="index.php" method="post">
         <div class="card shadow">
-          <a href='.$pagePath.'><img src="'.$shopImg.'" alt="image1" class ="img-fluid card-img-top"></a>
-           <div class ="centered">'.$shopName.'</div>
+          <a href='.$pagePath.'><img src="'.$shopImg.'" alt="image1" class ="img-fluid card-img-top"><div class ="centered"><h3>'.$shopName.'</h3></div></a>
+
         </div>
       </form>
     </div>
@@ -195,8 +199,31 @@ function getProduct($conn, $shopName) {
           return $returndata;
       }
     }
+    mysqli_stmt_close($stmt);
    }
+/*add product to the cart*/
+function addToCart($productId, $productName, $productImg, $productPrice, $shopName){
+  if(isset($_SESSION["cart"])){
+    $item_array_id = array_column($_SESSION["cart"], "productId");
+    if(!in_array($_GET['productId'], $item_array_id)){
+      $count = count($_SESSION["cart"]);
+      $item_array = array("productId" => $productId,
+          "productName" => $productName,
+          "productImg" => $productImg,
+          "productPrice" => $productPrice,
+          "shopName" => $shopName);
+          $_SESSION['cart'][$count] = $item_array;
+    }else{
+      echo '<script>alert("item Already in basket")</script>';
+    }
+  }else{
+    $item_array = array("productId" => $productId,
+        "productName" => $productName,
+        "productImg" => $productImg,
+        "productPrice" => $productPrice,
+        "shopName" => $shopName);
+    $_SESSION["cart"][0] = $item_array;
+  }
 
-
-
+}
 ?>

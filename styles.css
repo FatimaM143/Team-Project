@@ -10,11 +10,22 @@ body{
 .container {
   width: 100%;
   margin:  auto;
-  padding: 0 16px;
+  padding: 0 18px;
   max-width: 1440px;
-}
+  position: relative;
+  text-align: center;
+  color: black;
+  }
+
 header {
   background: #f2f3f2;
+  width: 100%;
+  margin:  auto;
+  padding: 0 16px;
+  max-width: 2000px;
+  position: relative;
+  text-align: center;
+  color: black;
 }
 header::after {
   content: '';
@@ -38,8 +49,9 @@ nav ul {
 }
 nav li {
   display: inline-block;
-  margin-left:  70px;
+  margin-left:  60px;
   padding-top: 50px;
+  padding-right: 50px;
 
   position: relative;
 }
@@ -194,34 +206,16 @@ width: 76%;
 opacity: 0.9;
 }
 .form {
+  margin-top: 500px;
   margin: auto;
-  width: 300px;
-  border: 15px solid green;
+  width: 500px;
+  border: 10px solid #04AA6D;
   padding: 50px;
+  text-align: center;
+  background-color: solid white;
 }
 .formbtn:hover {
 opacity:1;
-}
-.fa {
-  padding: 10px;
-  font-size: 20px;
-  width: 20px;
-  text-align: center;
-  text-decoration: none;
-}
-/*
-social media icons
-*/
-.fa:hover {
-  opacity: 0.7;
-}
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
 }
 /*
 about page
@@ -236,15 +230,12 @@ about page
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+  margin: 10px;
+  padding: 5px;
+  background-color: #f2f3f2;
 }
 
-.about-section {
-  padding: 70px;
-  text-align: center;
-  background-color: #04AA6D;
-  color: white;
-}
+
 
 .container::after, .row::after {
   content: "";
@@ -253,6 +244,13 @@ about page
 
 }
 
-.title {
-  color: green;
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img-fluid {
+  width:  340px;
+  height: 400px;
 }

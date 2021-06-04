@@ -1,7 +1,6 @@
 <?php
 include_once 'header.php';
 ?>
-</header>
 
   <section class="bg-image">
     <!-- Shop 1-->
