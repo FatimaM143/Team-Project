@@ -44,13 +44,11 @@ session_start();
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="shops.php">Shops</a></li>
-        <li><a href="contact.php">Contact</a></li>
         <li><a href="about.php">About Us</a></li>
         <?php
         if(isset($_SESSION["Uid"])) {
-          echo "<li><a href='profile.php'>Profile</a></li>";
           echo "<li><a href='includes/logout.inc.php'>Log out</a></li>";
-          echo "<li><a href='basket.php'>Basket</a></li>";
+          echo "<li><a href='basket.php'>Basket <i class ='fas fa-shopping-basket'></i> ".count($_SESSION['cart'])."</a></li>";
           echo "<p>Hello, " . $_SESSION["Name"]. "!</p>";
         }
         else{

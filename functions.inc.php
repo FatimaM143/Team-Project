@@ -157,12 +157,13 @@ function addProduct($productName, $productPrice, $productDesc, $productImg, $pro
         <h5 class = "card-title">'.$productName.'</h5>
         <p class = "card text">'.$productDesc.'</p>
         <h5><span class="price">£'.$productPrice.'</span></h5>
-        <button type="submit" class = "btn btn-warning my-3" name="add">Add to Basket<i class ="fas fa-shopping-cart"></i></button>
+        <input type="number" id="quantity" name="quantity" min="1" max="5" value = 1>
+        <button type="submit" class = "btn btn-warning my-3" name="add">Add to Basket<i class ="fas fa-shopping-basket"></i></button>
          <input type="hidden" name="productId" value='.$productId.'>
-         <input type="hidden" name="productName" value='.$productName.'>
-         <input type="hidden" name="productImg" value='.$productImg.'>
-         <input type="hidden" name="productPrice" value='.$productPrice.'>
-         <input type="hidden" name="shopName" value='.$shopName.'>
+         <input type="hidden" name="productName" value='.$productId.'>
+         <input type="hidden" name="productPrice" value='.$productId.'>
+         <input type="hidden" name="productImg" value='.$productId.'>
+         <input type="hidden" name="productId" value='.$productId.'>
       </div>
     </form>
   </div>
@@ -171,7 +172,7 @@ function addProduct($productName, $productPrice, $productDesc, $productImg, $pro
 }
 /*add shop*/
 function addShop($shopName, $shopImg, $pagePath) {
- $element = '
+  $element = '
   <div class="col-md-3 col-sm-6 my-3 my-md-0">
       <form action="index.php" method="post">
         <div class="card shadow">
@@ -202,28 +203,43 @@ function getProduct($conn, $shopName) {
     mysqli_stmt_close($stmt);
    }
 /*add product to the cart*/
-function addToCart($productId, $productName, $productImg, $productPrice, $shopName){
+function addToCart($productId, $quantity){
   if(isset($_SESSION["cart"])){
-    $item_array_id = array_column($_SESSION["cart"], "productId");
-    if(!in_array($_GET['productId'], $item_array_id)){
-      $count = count($_SESSION["cart"]);
-      $item_array = array("productId" => $productId,
-          "productName" => $productName,
-          "productImg" => $productImg,
-          "productPrice" => $productPrice,
-          "shopName" => $shopName);
-          $_SESSION['cart'][$count] = $item_array;
-    }else{
-      echo '<script>alert("item Already in basket")</script>';
-    }
-  }else{
-    $item_array = array("productId" => $productId,
-        "productName" => $productName,
-        "productImg" => $productImg,
-        "productPrice" => $productPrice,
-        "shopName" => $shopName);
-    $_SESSION["cart"][0] = $item_array;
+        $item_array_id = array_column($_SESSION["cart"], "productId");
+        if(!in_array($productId, $item_array_id)){
+            $count = count($_SESSION["cart"]);
+              $item_array = array("productId" => $productId,
+                  "quantity" => $quantity);
+              $_SESSION['cart'][$count] = $item_array;
+          }else{
+              echo '<script>alert("item Already in basket")</script>';
+              foreach ($item_array_id as $key => $value) {
+                if($item_array_id[$key] == $productId)
+                $_SESSION['cart'][$key]["quantity"] += $quantity;
+              }
+          }
+      }else{
+        $item_array = array("productId" => $productId,
+          "quantity" => $quantity);
+        $_SESSION["cart"][0] = $item_array;
   }
-
 }
+/*get basket items*/
+function getBasket($conn, $productId) {
+   $sql = "SELECT * FROM products WHERE productId = ?;";
+   $stmt = mysqli_stmt_init($conn);
+   if (!mysqli_stmt_prepare($stmt, $sql)) {                                  //run sql in the database and check for errors
+     header("location: ../basket.php?error=stmtfailed");                     //Return to signup page if error occurs
+     exit();
+   }
+   else{
+   mysqli_stmt_bind_param($stmt, "s", $productId);
+   mysqli_stmt_execute($stmt);
+   $returndata = mysqli_stmt_get_result($stmt);
+      if(mysqli_num_rows($returndata) > 0) {
+          return $returndata;
+      }
+    }
+    mysqli_stmt_close($stmt);
+   }
 ?>
