@@ -1,0 +1,28 @@
+/* ABOUT US */
+html body{
+
+    background: #f2f3f2;
+}
+.about-text {
+  position: relative;
+  float: right;
+  max-width: 50%;
+  margin: 80px;
+  margin-left: 0;
+  text-align: center;
+}
+
+.building {
+  position: relative;
+  margin: 80px;
+  width: 450px;
+  height: auto;
+}
+.about{
+  position: relative;
+  text-align: center;
+  max-width: 50%;
+  border: 5px solid white;
+  padding: 50px;
+  margin: auto;
+}

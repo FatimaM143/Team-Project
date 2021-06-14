@@ -38,8 +38,7 @@ function invalidEmail($email) {
     }
     return $result;
 }
-/*Check that the given passwords match
-*/
+/*Check that the given passwords match*/
 function pwdMatch($pwd, $pwdRepeat) {
   $result;
   if($pwd !== $pwdRepeat) {
@@ -75,8 +74,7 @@ function uidExists($conn, $username, $email) {
   }
   mysqli_stmt_close($stmt);
 }
-/*Check for a strong password
-*/
+/*Check for a strong password*/
 function pwdStrong($pwd) {
   $result;
   $uppercase = preg_match('@[A-Z]@', $pwd);                                         //Use preg_match function to check pwd contains upper & lower case, and a number
@@ -89,8 +87,7 @@ function pwdStrong($pwd) {
   }
   return $result;
 }
-/*Sign up the user
-*/
+/*Sign up the user*/
 function createUser($conn, $name, $email, $username, $pwd) {
   $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";          //SQL statement to insert new user into table
   $stmt = mysqli_stmt_init($conn);
@@ -105,8 +102,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
   header("location: ../index.php?error=none");
   exit();
 }
-/*Check for empty input on login
-*/
+/*Check for empty input on login*/
 function emptyInputLogin ($username, $pwd) {
   $result;
   if(empty($username)||empty($pwd)) {
@@ -117,8 +113,7 @@ function emptyInputLogin ($username, $pwd) {
     }
     return $result;
 }
-/*Log in user
-*/
+/*Log in user*/
 function loginUser($conn, $email, $pwd) {
   $sql = "SELECT * FROM users WHERE usersEmail = ?;";                         //Create SQL queiry with placeholder
   $stmt = mysqli_stmt_init($conn);                                           //prepared statement to prevent SQLinjection attacks
@@ -149,7 +144,102 @@ function loginUser($conn, $email, $pwd) {
   }
     exit();
   }
+}}
+/*Add product*/
+function addProduct($productName, $productPrice, $productDesc, $productImg, $productId, $shopName){
+  $element = '
+  <div class="col-md-3 col-sm-6 my-3 my-md-0">
+    <form action="'.$shopName.'.php" method="post">
+      <div class="card shadow">
+        <img src='.$productImg.' alt="image1" class ="img-fluid card-img-top">
+      </div>
+      <div class="card-body">
+        <h5 class = "card-title">'.$productName.'</h5>
+        <p class = "card text">'.$productDesc.'</p>
+        <h5><span class="price">£'.$productPrice.'</span></h5>
+        <input type="number" id="quantity" name="quantity" min="1" max="5" value = 1>
+        <button type="submit" class = "btn btn-warning my-3" name="add">Add to Basket<i class ="fas fa-shopping-basket"></i></button>
+         <input type="hidden" name="productId" value='.$productId.'>
+         <input type="hidden" name="productName" value='.$productId.'>
+         <input type="hidden" name="productPrice" value='.$productId.'>
+         <input type="hidden" name="productImg" value='.$productId.'>
+         <input type="hidden" name="productId" value='.$productId.'>
+      </div>
+    </form>
+  </div>
+  ';
+  echo $element;
 }
-}
+/*add shop*/
+function addShop($shopName, $shopImg, $pagePath) {
+  $element = '
+  <div class="col-md-3 col-sm-6 my-3 my-md-0">
+      <form action="index.php" method="post">
+        <div class="card shadow">
+          <a href='.$pagePath.'><img src="'.$shopImg.'" alt="image1" class ="img-fluid card-img-top"><div class ="centered"><h3>'.$shopName.'</h3></div></a>
 
+        </div>
+      </form>
+    </div>
+  ';
+ echo $element;
+}
+/*Get product data from db*/
+function getProduct($conn, $shopName) {
+   $sql = "SELECT * FROM products WHERE shopName = ?;";
+   $stmt = mysqli_stmt_init($conn);
+   if (!mysqli_stmt_prepare($stmt, $sql)) {                                  //run sql in the database and check for errors
+     header("location: ../login.php?error=stmtfailed");                     //Return to signup page if error occurs
+     exit();
+   }
+   else{
+   mysqli_stmt_bind_param($stmt, "s", $shopName);
+   mysqli_stmt_execute($stmt);
+   $returndata = mysqli_stmt_get_result($stmt);
+      if(mysqli_num_rows($returndata) > 0) {
+          return $returndata;
+      }
+    }
+    mysqli_stmt_close($stmt);
+   }
+/*add product to the cart*/
+function addToCart($productId, $quantity){
+  if(isset($_SESSION["cart"])){
+        $item_array_id = array_column($_SESSION["cart"], "productId");
+        if(!in_array($productId, $item_array_id)){
+            $count = count($_SESSION["cart"]);
+              $item_array = array("productId" => $productId,
+                  "quantity" => $quantity);
+              $_SESSION['cart'][$count] = $item_array;
+          }else{
+              echo '<script>alert("item Already in basket")</script>';
+              foreach ($item_array_id as $key => $value) {
+                if($item_array_id[$key] == $productId)
+                $_SESSION['cart'][$key]["quantity"] += $quantity;
+              }
+          }
+      }else{
+        $item_array = array("productId" => $productId,
+          "quantity" => $quantity);
+        $_SESSION["cart"][0] = $item_array;
+  }
+}
+/*get basket items*/
+function getBasket($conn, $productId) {
+   $sql = "SELECT * FROM products WHERE productId = ?;";
+   $stmt = mysqli_stmt_init($conn);
+   if (!mysqli_stmt_prepare($stmt, $sql)) {                                  //run sql in the database and check for errors
+     header("location: ../basket.php?error=stmtfailed");                     //Return to signup page if error occurs
+     exit();
+   }
+   else{
+   mysqli_stmt_bind_param($stmt, "s", $productId);
+   mysqli_stmt_execute($stmt);
+   $returndata = mysqli_stmt_get_result($stmt);
+      if(mysqli_num_rows($returndata) > 0) {
+          return $returndata;
+      }
+    }
+    mysqli_stmt_close($stmt);
+   }
 ?>

@@ -3,10 +3,11 @@
 $servername = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
-$dBName = "crnex";
+$dBName = "crnex1";
 
 $conn = mysqli_connect($servername, $dBUsername, $dBPassword, $dBName);
 
 if(!$conn){
   die("Connection failed: " . mysqli_connect_error());
 }
+?>
