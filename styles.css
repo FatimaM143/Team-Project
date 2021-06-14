@@ -1,256 +1,501 @@
-body{
-  margin: 0;
-  background: white;
-  height: 100%;
-  /*font-family: 'Ubuntu', sans-serif;*/
-  font-family: 'Montserrat', sans-serif;
+html body{
 
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+
 }
 .container {
   width: 100%;
-  margin:  auto;
-  padding: 0 18px;
-  max-width: 1440px;
-  position: relative;
-  text-align: center;
-  color: black;
-  }
+  margin: 0 auto;
+}
 
-header {
-  background: #f2f3f2;
+
+/* BODY */
+.responsive {
   width: 100%;
-  margin:  auto;
-  padding: 0 16px;
-  max-width: 2000px;
-  position: relative;
-  text-align: center;
-  color: black;
-}
-header::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.logo {
-  float: left;
-  padding: 10px 0;
-  padding-top: 10px;
-  width: 120px;
   height: auto;
 }
-nav {
-  float: right;
-}
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-nav li {
-  display: inline-block;
-  margin-left:  60px;
-  padding-top: 50px;
-  padding-right: 50px;
 
-  position: relative;
-}
-nav a {
-  color: black;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-nav a:hover {
-  color: grey;
-}
-nav a::before {
-  content: '';
-  display: block;
-  height: 3px;
-  background-color: black;
-
-  position:absolute;
-  bottom: -10px;
-  width: 0%;
-
-  transition: All ease-in-out 250ms;
-}
-nav a:hover::before {
-  width: 100%;
-}
-*{
-margin: 0;
-padding: 0;
-}
-.bg-image {
-  min-height: 100vh;
-  width: 100%;
-  background-image:url("Leeds-Corn-Exchange.png");
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-/*Shop 1*/
+/*shop1*/
 .button1{
-background-color: yellow;
-border: none;
-display: inline-block;
-margin: 260px 20px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 30px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:1%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: #6600cc;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 40%;
 }
 .popup1 {display: none;}
 .button1:hover + .popup1 {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button1:hover{opacity: 0.4;}
-.Proms_and_Pearls{max-width: 80%; opacity: 0.8;}
+.Shop1{opacity: 0.8; width: 80%; height: auto;}
 
-/*Shop 2*/
+/*shop2*/
 .button2{
-background-color: green;
-border: none;
-display: inline-block;
-margin: 263px 10px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 28px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:8%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 40%;
 }
+
 .popup2 {display: none;}
 .button2:hover + .popup2 {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button2:hover{opacity: 0.4;}
-.Dion_Smith_Jewellery{max-width: 80%; opacity: 0.8;}
+.Shop2{opacity: 0.8; width: 80%; height: auto;}
+
 /*Shop 3*/
 .button3{
-background-color: green;
-border: none;
-display: inline-block;
-margin: 263px 15px;
-cursor: pointer;
-opacity: 0;
-transition: 0.3s;
-padding: 50px 28px;
-border-radius: 40%;
+  position: absolute;
+  top:62%;
+  left:15%;
+  color: black;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: #ffccff;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 40%;
 }
+
 .popup3 {display: none;}
 .button3:hover + .popup3 {
   display: inline;
   float: right;
   position: absolute;
-  bottom: 100px;
+  bottom: 220px;
   right: 50px;
 }
 .button3:hover{opacity: 0.4;}
-.NorthernAcousticsLogo{max-width: 80%; opacity: 0.8;}
-.about-text{
-  float: right;
-  width: 700px;
-  padding: 15px;
-  border: 3px solid white;
-  margin-top: 80px;
-  margin-left: 0px;
-  margin-right: 130px;
-  text-align: center;
-  font-size: 17px;
-  font-family: 'Montserrat', sans-serif;
-}
-.building{
-float: left;
-margin: 0;
-padding: 60px;
-padding-left: 90px;
-/*padding-top: 10px;
-padding-left: 20px;*/
-width: 500px;
-height: auto;
-}
+.Shop3{opacity: 0.8; width: 80%; height: auto;}
 
-input[type=text], input[type=password] {
-width: 75%;
-padding: 5px;
-margin: 5px 0 22px 0;
-display: inline-block;
-border: 2px solid #04AA6D;
-border-radius: 4px;
-color: black;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-background-color: #04AA6D;
-outline: none;
-}
-/* Set a style for all buttons */
-.formbtn {
-background-color: #04AA6D;
-color: white;
-padding: 10px 10px;
-margin: 8px 0;
-border: none;
-cursor: pointer;
-width: 76%;
-opacity: 0.9;
-}
-.form {
-  margin-top: 500px;
-  margin: auto;
-  width: 500px;
-  border: 10px solid #04AA6D;
-  padding: 50px;
-  text-align: center;
-  background-color: solid white;
-}
-.formbtn:hover {
-opacity:1;
-}
-/*
-about page
-*/
-.column {
-  float: left;
-  width: 49%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-  text-align: center;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
-  padding: 5px;
-  background-color: #f2f3f2;
-}
-
-
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-
-}
-
-.centered {
+/*Shop 4*/
+.button4{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top:62%;
+  left:20%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: #009999;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 40%;
 }
-.img-fluid {
-  width:  340px;
-  height: 400px;
+
+.popup4 {display: none;}
+.button4:hover + .popup4 {
+  display: inline;
+  float: right;
+  position: absolute;
+  bottom: 220px;
+  right: 50px;
+}
+.button4:hover{opacity: 0.4;}
+.Shop4{opacity: 0.8; width: 80%; height: auto;}
+
+/* Shop5 */
+.button5{
+  position: absolute;
+  top:62%;
+  left:25%;
+  color: white;
+  padding: 30px 8px;
+  font-size: 1.4vw;
+  background-color: #000033;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 40%;
+}
+
+.popup5 {display: none;}
+.button5:hover + .popup5 {
+  display: inline;
+  float: right;
+  position: absolute;
+  bottom: 220px;
+  right: 50px;
+}
+.button5:hover{opacity: 0.4;}
+.Shop5{opacity: 0.8; width: 80%; height: auto;}
+
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 323px){
+.button1{
+  top:80%;
+  left:1%;
+  color: white;
+  padding: 3px 0.8px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top:80%;
+  left:8%;
+  color: white;
+  padding: 3px 0.8px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top:80%;
+    left:15%;
+    color: white;
+    padding: 3px 0.8px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+    top:80%;
+    left:21.5%;
+    color: white;
+    padding: 3px 0.8px;
+    }
+    .button4:hover + .popup4 {float: right; left: 60%;}
+    .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+    top:80%;
+    left:27.5%;
+    color: white;
+    padding: 3px 0.8px;
+    }
+    .button4:hover + .popup4 {float: right; left: 60%;}
+    .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+}
+
+@media only screen and (min-width:500px){
+.button1{
+  top:55%;
+  left:1%;
+  padding: 6px 1.6px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top:55%;
+  left:8%;
+  padding: 6px 1.6px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top:55%;
+    left:15%;
+    padding: 6px 1.6px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+      top:55%;
+      left:21.5%;
+      padding: 6px 1.6px;
+      }
+      .button4:hover + .popup4 { float: right; left: 60%;}
+      .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+      top:55%;
+      left:27.5%;
+      padding: 6px 1.6px;
+      }
+      .button5:hover + .popup5 {float: right; left: 60%;}
+      .Shop5{opacity: 0.8; width: 100%; height: auto;}
+}
+
+@media only screen and (min-width:600px){
+.button1{
+  top:58.5%;
+  left:1%;
+  padding: 10px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top:58.5%;
+  left:8%;
+  padding: 10px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top:58.5%;
+    left:15%;
+    padding: 10px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+    top:58.5%;
+    left:21.5%;
+    padding: 10px 2px;
+    }
+    .button4:hover + .popup4 { float: right; left: 60%;}
+    .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+      top:58.5%;
+      left:27.5%;
+      padding: 10px 2px;
+      }
+      .button5:hover + .popup5 {float: right; left: 60%;}
+      .Shop5{opacity: 0.8; width: 100%; height: auto;}
+
+}
+
+@media only screen and (min-width:790px){
+.button1{
+  top:65%;
+  left:1%;
+  padding: 10px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top:65%;
+  left:8%;
+  padding: 10px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top:65%;
+    left:15%;
+    padding: 10px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+      top:65%;
+      left:21.5%;
+      padding: 10px 2px;
+      }
+      .button4:hover + .popup4 { float: right; left: 60%;}
+      .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+      top:65%;
+      left:27.5%;
+      padding: 10px 2px;
+      }
+      .button5:hover + .popup5 {float: right; left: 60%;}
+      .Shop5{opacity: 0.8; width: 100%; height: auto;}
+}
+
+@media only screen and (min-width:970px){
+.button1{
+  top: 68%;
+  left:1.5%;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top: 68%;
+  left:8.5%;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top: 68%;
+    left:15.5%;
+    padding: 15px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+
+.button4{
+      top: 68%;
+      left:21.5%;
+      padding: 15px 2px;
+      }
+    .button4:hover + .popup4 { float: right; left: 60%;}
+    .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+  .button5{
+      top: 68%;
+      left:27.5%;
+      padding: 15px 2px;
+      }
+      .button5:hover + .popup5 {float: right; left: 60%;}
+      .Shop5{opacity: 0.8; width: 100%; height: auto;}
+
+
+}
+@media only screen and (min-width:975px){
+.button1{
+  top: 60%;
+  left:1.5%;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top: 60%;
+  left:8.5%;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top: 60%;
+    left:15.5%;
+    padding: 15px 2px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+
+.button4{
+    top: 60%;
+    left:21.5%;
+    padding: 15px 2px;
+    }
+    .button4:hover + .popup4 { float: right; left: 60%;}
+    .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+      top: 60%;
+      left:27.5%;
+      padding: 15px 2px;
+      }
+      .button5:hover + .popup5 {float: right; left: 60%;}
+      .Shop5{opacity: 0.8; width: 100%; height: auto;}
+
+}
+@media only screen and (min-width:976px){
+.button1{
+  top: 58%;
+  left:1.5%;
+  padding: 15px 2px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top: 58%;
+  left:8.5%;
+  padding: 15px 2px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+  top: 58%;
+  left:15.5%;
+  padding: 15px 2px;
+  }
+  .button3:hover + .popup3 {float: right; left: 60%;}
+  .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+      top: 58%;
+      left:21.5%;
+      padding: 15px 2px;
+      }
+      .button4:hover + .popup4 { float: right; left: 60%;}
+      .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+  .button5{
+        top: 58%;
+        left:27.5%;
+        padding: 15px 2px;
+        }
+        .button5:hover + .popup5 {float: right; left: 60%;}
+        .Shop5{opacity: 0.8; width: 100%; height: auto;}
+
+}
+@media only screen and (min-width:1000px){
+.button1{
+  top: 61%;
+  left:1.5%;
+  padding: 30px 3px;
+  }
+  .button1:hover + .popup1 {float: right; left: 60%; }
+  .Shop1{opacity: 0.8; width: 100%; height: auto;}
+
+.button2{
+  top: 61%;
+  left:8.5%;
+  padding: 30px 3px;
+  }
+  .button2:hover + .popup2 { float: right; left: 60%;}
+  .Shop2{opacity: 0.8; width: 100%; height: auto;}
+
+.button3{
+    top: 61%;
+    left:15%;
+    padding: 30px 3px;
+    }
+    .button3:hover + .popup3 {float: right; left: 60%;}
+    .Shop3{opacity: 0.8; width: 100%; height: auto;}
+
+.button4{
+      top: 62%;
+      left:21.5%;
+      padding: 30px 3px;
+      }
+      .button4:hover + .popup4 { float: right; left: 60%;}
+      .Shop4{opacity: 0.8; width: 100%; height: auto;}
+
+.button5{
+        top: 62%;
+        left:27.5%;
+        padding: 30px 3px;
+        }
+        .button5:hover + .popup5 {float: right; left: 60%;}
+        .Shop5{opacity: 0.8; width: 100%; height: auto;}
 }

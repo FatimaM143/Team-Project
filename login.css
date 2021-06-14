@@ -1,0 +1,63 @@
+
+body {
+
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: url('../img/transparent_bg.png') no-repeat center center fixed;
+  background-size: cover;
+
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: black;
+  margin: 3rem;
+  margin-right: 0.7rem;
+}
+
+.cover  {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+label{
+  padding:  27px;
+}
+
+input{
+margin: 20px;
+width: 100%;
+padding: 12px;
+padding-right: 80px;
+line-height: 1rem;
+display: block;
+background-color: white;
+border: 1px solid black;
+box-sizing: border-box;
+}
+
+button {
+  margin: 15px;
+  margin-left: 90px;
+  background: #d73851;
+  border: 1px solid #ef3f5a;
+  color: #fff;
+  padding: 0 50px;
+
+  cursor: pointer;
+  line-height: 50px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.formbtn:hover {
+  background: #d73851;
+  border: 1px solid #Black;
+}
+
+/

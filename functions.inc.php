@@ -102,6 +102,55 @@ function createUser($conn, $name, $email, $username, $pwd) {
   header("location: ../index.php?error=none");
   exit();
 }
+/*create admin*/
+function createAdmin($conn, $usr, $pwd, $shop) {
+  $sql = "INSERT INTO admin (adminUsr, adminPwd, shop) VALUES ( ?, ?, ?);";          //SQL statement to insert new user into table
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {                                                         //Error check first
+    header("location: ../admin.php?error=stmtfailed");
+    exit();
+  }
+  $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT);                                                                           //inbuilt PHP hashing algo
+  mysqli_stmt_bind_param($stmt, "sss", $usr, $hashedPwd, $shop);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  header("location: ../admin.php?error=none");
+  exit();
+}
+function loginAdmin($conn, $usr, $pwd) {
+  $sql = "SELECT * FROM admin WHERE adminUsr = ?;";                         //Create SQL queiry with placeholder
+  $stmt = mysqli_stmt_init($conn);                                           //prepared statement to prevent SQLinjection attacks
+  if (!mysqli_stmt_prepare($stmt, $sql)) {                                  //run sql in the database and check for errors
+    header("location: ../admin.php?error=stmtfailed");                     //Return to signup page if error occurs
+    exit();
+  }
+    mysqli_stmt_bind_param($stmt, "s", $usr);
+    mysqli_stmt_execute($stmt);                                             //Attempting to grab data from database
+    $returndata = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($returndata);
+    if(!isset($row['adminUsr']))
+    {
+      header("location: ../admin.php?error=incorrectUser");
+    }else{
+       $pwdHashed = $row['adminPwd'];
+       $checkPwd = password_verify($pwd, $pwdHashed);
+       mysqli_stmt_close($stmt);
+    if($checkPwd === false){                                                 //if passwords dont match(returns false), return user to login page and display error
+      header("location: ../admin.php");
+    }else if ($checkPwd === true){
+      session_start();                                                    //if passwords match begin a session for that user
+      $_SESSION["adminID"] = $row['adminID'];
+      $_SESSION["adminUid"] = $row['adminUsr'];                                   //grab userId and username from database for ease of access during session
+      $_SESSION["shop"] = $row['shop'];
+      if(isset($_SESSION["adminUid"]))
+      {
+        header("location: ../index.php?error=none");
+      }
+
+    }
+      exit();
+    }
+  }
 /*Check for empty input on login*/
 function emptyInputLogin ($username, $pwd) {
   $result;
@@ -204,7 +253,8 @@ function getProduct($conn, $shopName) {
    }
 /*add product to the cart*/
 function addToCart($productId, $quantity){
-  if(isset($_SESSION["cart"])){
+  if(isset($_SESSION["Uid"])){
+    if(isset($_SESSION["cart"])){
         $item_array_id = array_column($_SESSION["cart"], "productId");
         if(!in_array($productId, $item_array_id)){
             $count = count($_SESSION["cart"]);
@@ -218,11 +268,15 @@ function addToCart($productId, $quantity){
                 $_SESSION['cart'][$key]["quantity"] += $quantity;
               }
           }
-      }else{
+        }else{
         $item_array = array("productId" => $productId,
           "quantity" => $quantity);
         $_SESSION["cart"][0] = $item_array;
-  }
+      }
+    }else{
+      echo '<script>alert("Login or sign up to add to basket")</script>';
+    }
+
 }
 /*get basket items*/
 function getBasket($conn, $productId) {
@@ -242,4 +296,20 @@ function getBasket($conn, $productId) {
     }
     mysqli_stmt_close($stmt);
    }
+/*Add basket items to order database*/
+function addOrder($conn, $usersUid, $orderDate, $orderSlot){
+
+  $sql = "INSERT INTO orders (usersUid, orderDate, orderSlot) VALUES ( ?, ?, ?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {                                                         //Error check first
+    header("location: ../basket.php?error=stmtfailed");
+    exit();
+  }                                                                          //inbuilt PHP hashing algo
+  mysqli_stmt_bind_param($stmt, "sss", $usersUid, $orderDate, $orderSlot);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  header("location: ./index.php");
+  exit();
+
+}
 ?>

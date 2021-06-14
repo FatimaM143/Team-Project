@@ -1,19 +1,33 @@
 <?php
 include_once 'header.php';
 ?>
-  </header>
-  <section class ="form">
-    <h2>Sign up</h2>
-    <div class="signup-form-form">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="css/signup.css" rel="stylesheet" type="text/css"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+  <title>Corn Exchange E-commerce</title>
+</head>
+
+<body>
+  <div class ="container">
+
+    <div class="cover">
+    <h1>Sign up</h1>
       <form action="includes/signup.inc.php" method="post">
+
         <input type="text" name="name" placeholder="Full name..">
         <input type="text" name="email" placeholder="E-Mail..">
         <input type="text" name="uid" placeholder="Username..">
         <input type="password" name="pwd" placeholder="Password..">
         <input type="password" name="pwdrepeat" placeholder="Repeat Password..">
+
         <button type="submit" name="submit" class = "formbtn">Sign Up</button>
       </form>
-    </div>
+
     <?php
   if(isset($_GET["error"])) {
     if($_GET["error"] == "emptyinput"){
@@ -39,7 +53,10 @@ include_once 'header.php';
         }
     }
   ?>
-  </section>
+</div>
+</div>
+</body>
+</html>
 <?php
   include_once 'footer.php';
  ?>
